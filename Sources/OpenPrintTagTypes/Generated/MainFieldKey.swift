@@ -1,5 +1,5 @@
-// Auto-generated from OpenPrintTag spec/data/main_fields.yaml
-// Do not edit manually - regenerate from YAML when spec updates
+// Auto-generated from OpenPrintTag spec — do not edit manually
+// Regenerate: python3 Scripts/generate_types.py
 
 import Foundation
 
@@ -18,6 +18,8 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
     case materialName = 10
     case materialAbbreviation = 52
     case brandName = 11
+    @available(*, deprecated, message: "Removed from spec")
+    case deprecated12 = 12
     case writeProtection = 13
     case manufacturedDate = 14
     case countryOfOrigin = 55
@@ -33,8 +35,13 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
     case secondaryColor2 = 22
     case secondaryColor3 = 23
     case secondaryColor4 = 24
+    @available(*, deprecated, message: "Removed from spec")
+    case deprecated25 = 25
+    @available(*, deprecated, message: "Removed from spec")
+    case deprecated26 = 26
     case transmissionDistance = 27
     case tags = 28
+    case certifications = 56
     case density = 29
     case filamentDiameter = 30
     case shoreHardnessA = 31
@@ -52,13 +59,12 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
     case containerOuterDiameter = 43
     case containerInnerDiameter = 44
     case containerHoleDiameter = 45
-    case viscosity18C = 46
-    case viscosity25C = 47
-    case viscosity40C = 48
-    case viscosity60C = 49
+    case viscosity18c = 46
+    case viscosity25c = 47
+    case viscosity40c = 48
+    case viscosity60c = 49
     case containerVolumetricCapacity = 50
     case cureWavelength = 51
-    case certifications = 56
     case dryingTemperature = 57
     case dryingTime = 58
 
@@ -78,6 +84,7 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
         case .materialName: return "material_name"
         case .materialAbbreviation: return "material_abbreviation"
         case .brandName: return "brand_name"
+        case .deprecated12: return "deprecated_12"
         case .writeProtection: return "write_protection"
         case .manufacturedDate: return "manufactured_date"
         case .countryOfOrigin: return "country_of_origin"
@@ -93,8 +100,11 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
         case .secondaryColor2: return "secondary_color_2"
         case .secondaryColor3: return "secondary_color_3"
         case .secondaryColor4: return "secondary_color_4"
+        case .deprecated25: return "deprecated_25"
+        case .deprecated26: return "deprecated_26"
         case .transmissionDistance: return "transmission_distance"
         case .tags: return "tags"
+        case .certifications: return "certifications"
         case .density: return "density"
         case .filamentDiameter: return "filament_diameter"
         case .shoreHardnessA: return "shore_hardness_a"
@@ -112,18 +122,17 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
         case .containerOuterDiameter: return "container_outer_diameter"
         case .containerInnerDiameter: return "container_inner_diameter"
         case .containerHoleDiameter: return "container_hole_diameter"
-        case .viscosity18C: return "viscosity_18c"
-        case .viscosity25C: return "viscosity_25c"
-        case .viscosity40C: return "viscosity_40c"
-        case .viscosity60C: return "viscosity_60c"
+        case .viscosity18c: return "viscosity_18c"
+        case .viscosity25c: return "viscosity_25c"
+        case .viscosity40c: return "viscosity_40c"
+        case .viscosity60c: return "viscosity_60c"
         case .containerVolumetricCapacity: return "container_volumetric_capacity"
         case .cureWavelength: return "cure_wavelength"
-        case .certifications: return "certifications"
         case .dryingTemperature: return "drying_temperature"
         case .dryingTime: return "drying_time"
         }
     }
-    
+
     /// Whether this field is required
     public var isRequired: Bool {
         switch self {
@@ -131,7 +140,7 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
         default: return false
         }
     }
-    
+
     /// Whether this field is recommended
     public var isRecommended: Bool {
         switch self {
@@ -142,6 +151,8 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
         case .manufacturedDate: return true
         case .nominalNettoFullWeight: return true
         case .actualNettoFullWeight: return true
+        case .nominalFullLength: return true
+        case .actualFullLength: return true
         case .emptyContainerWeight: return true
         case .primaryColor: return true
         case .tags: return true
@@ -154,10 +165,13 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
         default: return false
         }
     }
-    
+
     /// Whether this field is deprecated
     public var isDeprecated: Bool {
         switch self {
+        case .deprecated12: return true
+        case .deprecated25: return true
+        case .deprecated26: return true
         default: return false
         }
     }

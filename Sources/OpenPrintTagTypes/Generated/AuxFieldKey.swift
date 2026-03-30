@@ -1,5 +1,5 @@
-// Auto-generated from OpenPrintTag spec/data/aux_fields.yaml
-// Do not edit manually - regenerate from YAML when spec updates
+// Auto-generated from OpenPrintTag spec — do not edit manually
+// Regenerate: python3 Scripts/generate_types.py
 
 import Foundation
 
@@ -18,5 +18,20 @@ public enum AuxFieldKey: UInt64, Sendable, CaseIterable, Codable {
         case .generalPurposeRangeUser: return "general_purpose_range_user"
         case .lastStirTime: return "last_stir_time"
         }
+    }
+
+    /// Whether this field is required
+    public var isRequired: Bool {
+        false
+    }
+
+    /// Whether this field is recommended
+    public var isRecommended: Bool {
+        false
+    }
+
+    /// Whether this field is deprecated
+    public var isDeprecated: Bool {
+        false
     }
 }
