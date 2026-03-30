@@ -18,7 +18,7 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
     case materialName = 10
     case materialAbbreviation = 52
     case brandName = 11
-    @available(*, deprecated, message: "Removed from spec")
+    // Deprecated in spec
     case deprecated12 = 12
     case writeProtection = 13
     case manufacturedDate = 14
@@ -35,9 +35,9 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
     case secondaryColor2 = 22
     case secondaryColor3 = 23
     case secondaryColor4 = 24
-    @available(*, deprecated, message: "Removed from spec")
+    // Deprecated in spec
     case deprecated25 = 25
-    @available(*, deprecated, message: "Removed from spec")
+    // Deprecated in spec
     case deprecated26 = 26
     case transmissionDistance = 27
     case tags = 28

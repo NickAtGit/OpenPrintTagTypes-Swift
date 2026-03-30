@@ -43,7 +43,7 @@ def generate_field_key_enum(name, yaml_file, swift_name):
         deprecated = f.get("deprecated", False)
         camel = to_camel(fname)
         if deprecated:
-            lines.append(f'    @available(*, deprecated, message: "Removed from spec")')
+            lines.append(f'    // Deprecated in spec')
         lines.append(f"    case {camel} = {key}")
 
     # fieldName property
