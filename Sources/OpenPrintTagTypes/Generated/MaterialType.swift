@@ -1,10 +1,10 @@
-// Auto-generated from OpenPrintTag spec/data/material_type_enum.yaml
-// Do not edit manually - regenerate from YAML when spec updates
+// Auto-generated from OpenPrintTag spec — do not edit manually
+// Regenerate: python3 Scripts/generate_types.py
 
 import Foundation
 
-/// Material type for 3D printing
-public enum MaterialType: Int, Sendable, Equatable, Codable, CaseIterable {
+/// Material type classifications
+public enum MaterialType: Int, Sendable, CaseIterable, Codable {
     case pla = 0
     case petg = 1
     case tpu = 2
@@ -45,8 +45,9 @@ public enum MaterialType: Int, Sendable, Equatable, Codable, CaseIterable {
     case psu = 37
     case tpi = 38
     case sbs = 39
+    case obc = 40
+    case eva = 41
 
-    /// Abbreviated material name
     public var abbreviation: String {
         switch self {
         case .pla: return "PLA"
@@ -89,11 +90,12 @@ public enum MaterialType: Int, Sendable, Equatable, Codable, CaseIterable {
         case .psu: return "PSU"
         case .tpi: return "TPI"
         case .sbs: return "SBS"
+        case .obc: return "OBC"
+        case .eva: return "EVA"
         }
     }
 
-    /// Full chemical name
-    public var name: String {
+    public var fullName: String {
         switch self {
         case .pla: return "Polylactic Acid"
         case .petg: return "Polyethylene Terephthalate Glycol"
@@ -135,58 +137,55 @@ public enum MaterialType: Int, Sendable, Equatable, Codable, CaseIterable {
         case .psu: return "Polysulfone"
         case .tpi: return "Thermoplastic Polyimide"
         case .sbs: return "Styrene-Butadiene-Styrene"
+        case .obc: return "Olefin Block Copolymer"
+        case .eva: return "Ethylene Vinyl Acetate"
         }
     }
 
-    /// Material class (FFF or SLA)
     public var materialClass: MaterialClass {
-        // All current materials are FFF - SLA materials may be added in future spec updates
-        return .fff
-    }
-
-    /// Detailed description of the material and its uses
-    public var description: String {
         switch self {
-        case .pla: return "Easy-to-print, biodegradable material. Ideal for beginners, prototypes, and models."
-        case .petg: return "Durable, strong, and temperature-resistant. Great for mechanical parts and functional prints."
-        case .tpu: return "A flexible, rubber-like material. Used for phone cases, vibration dampeners, and other soft parts."
-        case .abs: return "Strong, durable, and heat-resistant plastic. Used for functional parts like car interiors and LEGOs. Requires a heated bed and enclosure."
-        case .asa: return "Similar to ABS but with high UV and weather resistance, making it perfect for outdoor applications."
-        case .pc: return "Extremely strong, impact-resistant, and heat-resistant. Used for demanding engineering applications."
-        case .pctg: return "A tougher alternative to PETG with higher impact and chemical resistance."
-        case .pp: return "Lightweight, chemically resistant, and flexible. Used for creating living hinges and durable containers."
-        case .pa6: return "A type of Nylon that is tough and wear-resistant but absorbs more moisture than other nylons."
-        case .pa11: return "A flexible, bio-based Nylon with low moisture absorption and good chemical resistance."
-        case .pa12: return "The most common Nylon for 3D printing. Strong, tough, with low moisture absorption. Great for functional parts."
-        case .pa66: return "A stiffer and more heat-resistant Nylon compared to PA6, used for durable mechanical parts."
-        case .cpe: return "A family of strong and dimensionally stable materials (including PETG) known for chemical resistance."
-        case .tpe: return "A general class of soft, rubbery materials. Softer and more flexible than TPU."
-        case .hips: return "A lightweight material often used as a dissolvable support material for ABS prints (dissolves in Limonene)."
-        case .pha: return "A biodegradable material similar to PLA but with better toughness and flexibility."
-        case .pet: return "The same plastic used in water bottles. Strong and food-safe, but less common for printing than PETG."
-        case .pei: return "A high-performance material (also known as Ultem) with excellent thermal and mechanical properties."
-        case .pbt: return "An engineering polymer with good heat resistance and electrical insulation properties."
-        case .pvb: return "Easy to print and can be chemically smoothed with isopropyl alcohol for a glossy finish."
-        case .pva: return "A water-soluble filament used exclusively as a support material for complex prints."
-        case .pekk: return "An ultra-high-performance polymer with exceptional heat, chemical, and mechanical properties for industrial use."
-        case .peek: return "An ultra-high-performance polymer with exceptional mechanical, thermal, and chemical resistance. Used in demanding aerospace, medical, and industrial applications."
-        case .bvoh: return "A water-soluble support material that often dissolves faster and is easier to print than PVA."
-        case .tpc: return "A flexible, TPE-like material with good thermal and chemical resistance."
-        case .pps: return "A high-performance polymer known for its thermal stability and chemical resistance, often used in automotive and electronics."
-        case .ppsu: return "A high-performance material with excellent heat and chemical resistance, often used in medical applications."
-        case .pvc: return "Strong and durable but rarely used in 3D printing due to the release of toxic fumes."
-        case .peba: return "A flexible and lightweight TPE known for its excellent energy return, used in sports equipment."
-        case .pvdf: return "High-performance polymer with excellent resistance to chemicals and UV light."
-        case .ppa: return "A high-performance Nylon with superior strength, stiffness, and heat resistance compared to standard Nylons."
-        case .pcl: return "A biodegradable polyester with a very low melting point (~60 °C), allowing it to be reshaped by hand in hot water."
-        case .pes: return "A high-temperature, amorphous polymer with good chemical and hydrolytic stability."
-        case .pmma: return "A rigid, transparent material also known as acrylic. Offers good optical clarity."
-        case .pom: return "A low-friction, rigid material also known as Delrin. Excellent for gears, bearings, and moving parts."
-        case .ppe: return "An engineering thermoplastic with good temperature resistance and dimensional stability, often used in blends."
-        case .ps: return "A lightweight and brittle material. Not commonly used in its pure form for 3D printing."
-        case .psu: return "A high-temperature material with good thermal stability and chemical resistance."
-        case .tpi: return "An ultra-high-performance polymer with one of the highest glass transition temperatures and excellent thermal stability."
-        case .sbs: return "A flexible, rubber-like material (a type of TPE) known for good durability. It is relatively easy to print for a flexible filament."
+        case .pla: return .fff
+        case .petg: return .fff
+        case .tpu: return .fff
+        case .abs: return .fff
+        case .asa: return .fff
+        case .pc: return .fff
+        case .pctg: return .fff
+        case .pp: return .fff
+        case .pa6: return .fff
+        case .pa11: return .fff
+        case .pa12: return .fff
+        case .pa66: return .fff
+        case .cpe: return .fff
+        case .tpe: return .fff
+        case .hips: return .fff
+        case .pha: return .fff
+        case .pet: return .fff
+        case .pei: return .fff
+        case .pbt: return .fff
+        case .pvb: return .fff
+        case .pva: return .fff
+        case .pekk: return .fff
+        case .peek: return .fff
+        case .bvoh: return .fff
+        case .tpc: return .fff
+        case .pps: return .fff
+        case .ppsu: return .fff
+        case .pvc: return .fff
+        case .peba: return .fff
+        case .pvdf: return .fff
+        case .ppa: return .fff
+        case .pcl: return .fff
+        case .pes: return .fff
+        case .pmma: return .fff
+        case .pom: return .fff
+        case .ppe: return .fff
+        case .ps: return .fff
+        case .psu: return .fff
+        case .tpi: return .fff
+        case .sbs: return .fff
+        case .obc: return .fff
+        case .eva: return .fff
         }
     }
 }

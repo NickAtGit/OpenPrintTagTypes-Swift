@@ -1,10 +1,10 @@
-// Auto-generated from OpenPrintTag spec/data/tag_categories_enum.yaml
-// Do not edit manually - regenerate from YAML when spec updates
+// Auto-generated from OpenPrintTag spec — do not edit manually
+// Regenerate: python3 Scripts/generate_types.py
 
 import Foundation
 
-/// Category for material property tags
-public enum TagCategory: String, Sendable, Equatable, Codable, CaseIterable {
+/// Categories for material property tags
+public enum TagCategory: String, Sendable, CaseIterable, Codable {
     case biological = "biological"
     case physical = "physical"
     case electrical = "electrical"
@@ -16,7 +16,6 @@ public enum TagCategory: String, Sendable, Equatable, Codable, CaseIterable {
     case imitation = "imitation"
     case other = "other"
 
-    /// Human-readable display name
     public var displayName: String {
         switch self {
         case .biological: return "Biological"
@@ -32,7 +31,6 @@ public enum TagCategory: String, Sendable, Equatable, Codable, CaseIterable {
         }
     }
 
-    /// Emoji representation
     public var emoji: String {
         switch self {
         case .biological: return "🧬"
