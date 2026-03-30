@@ -14,6 +14,6 @@ public enum WriteProtection: Int, Sendable, CaseIterable, Codable {
     }
 
     public var isUnlockable: Bool {
-        self == .reversible
+        self == .protectPageUnlockable
     }
 }

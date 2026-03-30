@@ -188,7 +188,7 @@ def generate_material_type():
     for item in items:
         camel = to_camel(item["abbreviation"].lower().replace("-", "_").replace("+", "Plus").replace(" ", "_"))
         cat = item.get("category", "fff")
-        mc = "sla" if cat == "sla" else "fff"
+        mc = "SLA" if cat == "sla" else "FFF"
         lines.append(f"        case .{camel}: return .{mc}")
     lines.append("        }")
     lines.append("    }")
@@ -301,7 +301,7 @@ def generate_write_protection():
 
     lines.append("")
     lines.append("    public var isUnlockable: Bool {")
-    lines.append("        self == .reversible")
+    lines.append("        self == .protectPageUnlockable")
     lines.append("    }")
 
     lines.append("}")
