@@ -58,6 +58,9 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
     case viscosity60C = 49
     case containerVolumetricCapacity = 50
     case cureWavelength = 51
+    case certifications = 56
+    case dryingTemperature = 57
+    case dryingTime = 58
 
     /// Field name in snake_case format
     public var fieldName: String {
@@ -115,6 +118,9 @@ public enum MainFieldKey: UInt64, Sendable, CaseIterable, Codable {
         case .viscosity60C: return "viscosity_60c"
         case .containerVolumetricCapacity: return "container_volumetric_capacity"
         case .cureWavelength: return "cure_wavelength"
+        case .certifications: return "certifications"
+        case .dryingTemperature: return "drying_temperature"
+        case .dryingTime: return "drying_time"
         }
     }
     
